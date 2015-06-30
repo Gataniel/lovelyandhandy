@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui
  */
 
 @import "bootstrap-sprockets";
@@ -19,3 +20,4 @@
 
 @import "startbootstrap-freelancer/font-awesome";
 @import "startbootstrap-freelancer/freelancer";
+@import "startbootstrap-freelancer/bootstrap";

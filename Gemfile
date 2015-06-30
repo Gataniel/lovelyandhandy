@@ -35,6 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'gettext_i18n_rails'
+gem 'jquery-ui-rails'
 gem 'simple_form'
 gem 'slim-rails'
 
