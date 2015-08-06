@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+AppConfig = RecursiveOpenStruct.new(YAML.load(ERB.new(File.read(File.join(File.dirname(__FILE__),  'config.yml'))).result)[Rails.env])
+
 module Lovelyandhandy
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

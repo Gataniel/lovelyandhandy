@@ -1,0 +1,19 @@
+a.dropdown-toggle data-toggle="dropdown" href="#"
+  b = _('Login')
+  span.caret
+ul#login-dp.dropdown-menu
+  li
+    .row
+      .col-md-12
+        = _('Login via')
+        - if devise_mapping.omniauthable?
+          = render 'devise/sessions/omniauthable'
+
+          hr
+        = _('Login')
+        form#login-nav
+          = render 'devise/sessions/form'
+          hr
+      .bottom.text-center
+        = _('New here?')
+        =< link_to _('Join us'), new_user_registration_path

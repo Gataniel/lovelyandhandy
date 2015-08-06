@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
+
+  devise_scope :user do
+    get '/users/signup_finishing' => 'users/registrations#signup_finishing', as: :signup_finishing
+    # get '/users/:id/social_link_confirmation' => 'users/registrations#social_link_confirmation', as: :social_link_confirmation
+    # patch '/users/:id/social_link_confirm' => 'users/registrations#social_link_confirm', as: :social_link_confirm
+    post '/users/signup_finish' => 'users/registrations#signup_finish', as: :signup_finish
+  end
 
   root 'main#home'
 

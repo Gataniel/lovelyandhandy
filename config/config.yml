@@ -1,0 +1,30 @@
+defaults: &defaults
+
+  facebook:
+    app_id: 1668117346739825
+    secret_key: 49209b49f26a489983049747e750cbcf
+
+  vk:
+    api_key: 0
+    api_secret: 0
+
+  twitter:
+    api_key: Y8sButZfAWqUlAALRbgnMAis3
+    api_secret: hMncD4rcDjJL8wQLe9tfPIOSkLnS2jqPXI4GD7wZ3TzQ2XKrAE
+
+  google:
+    client_id: 0
+    client_secret: 0
+
+development:
+  <<: *defaults
+test:
+  <<: *defaults
+staging:
+  <<: *defaults
+production:
+  <<: *defaults
+
+  facebook:
+    app_id: 1668114990073394
+    secret_key: 459ee7d62f59c150b824f7e1f3a6fc7c

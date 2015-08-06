@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: videos
+#
+#  id             :integer          not null, primary key
+#  url            :text             not null
+#  videoable_id   :integer          not null
+#  videoable_type :string           not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyText
+  videoable_id: 1
+  videoable_type: MyString
+
+two:
+  url: MyText
+  videoable_id: 1
+  videoable_type: MyString
