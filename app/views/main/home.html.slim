@@ -1,5 +1,5 @@
 nav.navbar.navbar-default.navbar-fixed-top
-  .container
+  .container-fluid
     .navbar-header.page-scroll
       button.navbar-toggle[type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"]
         span.sr-only
@@ -11,17 +11,25 @@ nav.navbar.navbar-default.navbar-fixed-top
         | Lovely And Handy
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
-        li.hidden
-          a[href="#page-top"]
+        - if current_user.try(:admin?)
+          li
+            = link_to _('Admin'), ''
         li.page-scroll
           a[href="#shop"]
             | Shop
+        li
+          = link_to _('Blog'), 'http://poskakushka.blogspot.be/', target: '_blank'
         li.page-scroll
           a[href="#about"]
             | About
         li.page-scroll
           a[href="#contact"]
             | Contact
+        li.dropdown
+          - if current_user
+            = link_to _('Log Out'), destroy_user_session_path, method: :delete
+          - else
+            = render 'devise/sessions/new'
 header
   = render 'carousel'
 
@@ -39,42 +47,42 @@ section#shop
         .caption
           .caption-content
             i.fa.fa-search-plus.fa-3x
-        img.img-responsive[src="img/shop/cabin.png" alt=""]
+        img.img-responsive[src="http://lorempixel.com/360/260"]
       .col-sm-4.shop-item
         a.shop-link[href="#shopModal2" data-toggle="modal"]
 
         .caption
           .caption-content
             i.fa.fa-search-plus.fa-3x
-        img.img-responsive[src="img/shop/cake.png" alt=""]
+        img.img-responsive[src="http://lorempixel.com/360/260"]
       .col-sm-4.shop-item
         a.shop-link[href="#shopModal3" data-toggle="modal"]
 
         .caption
           .caption-content
             i.fa.fa-search-plus.fa-3x
-        img.img-responsive[src="img/shop/circus.png" alt=""]
+        img.img-responsive[src="http://lorempixel.com/360/260"]
       .col-sm-4.shop-item
         a.shop-link[href="#shopModal4" data-toggle="modal"]
 
         .caption
           .caption-content
             i.fa.fa-search-plus.fa-3x
-        img.img-responsive[src="img/shop/game.png" alt=""]
+        img.img-responsive[src="http://lorempixel.com/360/260"]
       .col-sm-4.shop-item
         a.shop-link[href="#shopModal5" data-toggle="modal"]
 
         .caption
           .caption-content
             i.fa.fa-search-plus.fa-3x
-        img.img-responsive[src="img/shop/safe.png" alt=""]
+        img.img-responsive[src="http://lorempixel.com/360/260"]
       .col-sm-4.shop-item
         a.shop-link[href="#shopModal6" data-toggle="modal"]
 
         .caption
           .caption-content
             i.fa.fa-search-plus.fa-3x
-        img.img-responsive[src="img/shop/submarine.png" alt=""]
+        img.img-responsive[src="http://lorempixel.com/360/260" alt=""]
 section#about.success
   .container
     .row
@@ -193,7 +201,7 @@ footer.text-center
             h2
               | Project Title
             hr.star-primary
-            img.img-responsive.img-centered[src="img/shop/cabin.png" alt=""]
+            img.img-responsive.img-centered[src="http://lorempixel.com/360/260t=""]
             p
               | Use this area of the page to describe your project. The icon above is part of a free icon set by
               a[href="https://sellfy.com/p/8Q9P/jV3VZ/"]
@@ -231,7 +239,7 @@ footer.text-center
             h2
               | Project Title
             hr.star-primary
-            img.img-responsive.img-centered[src="img/shop/cake.png" alt=""]
+            img.img-responsive.img-centered[src="http://lorempixel.com/360/260"]
             p
               | Use this area of the page to describe your project. The icon above is part of a free icon set by
               a[href="https://sellfy.com/p/8Q9P/jV3VZ/"]
@@ -269,7 +277,7 @@ footer.text-center
             h2
               | Project Title
             hr.star-primary
-            img.img-responsive.img-centered[src="img/shop/circus.png" alt=""]
+            img.img-responsive.img-centered[src="http://lorempixel.com/360/260lt=""]
             p
               | Use this area of the page to describe your project. The icon above is part of a free icon set by
               a[href="https://sellfy.com/p/8Q9P/jV3VZ/"]
@@ -307,7 +315,7 @@ footer.text-center
             h2
               | Project Title
             hr.star-primary
-            img.img-responsive.img-centered[src="img/shop/game.png" alt=""]
+            img.img-responsive.img-centered[src="http://lorempixel.com/360/260"]
             p
               | Use this area of the page to describe your project. The icon above is part of a free icon set by
               a[href="https://sellfy.com/p/8Q9P/jV3VZ/"]
@@ -345,7 +353,7 @@ footer.text-center
             h2
               | Project Title
             hr.star-primary
-            img.img-responsive.img-centered[src="img/shop/safe.png" alt=""]
+            img.img-responsive.img-centered[src="http://lorempixel.com/360/260"]
             p
               | Use this area of the page to describe your project. The icon above is part of a free icon set by
               a[href="https://sellfy.com/p/8Q9P/jV3VZ/"]
@@ -383,7 +391,7 @@ footer.text-center
             h2
               | Project Title
             hr.star-primary
-            img.img-responsive.img-centered[src="img/shop/submarine.png" alt=""]
+            img.img-responsive.img-centered[src="http://lorempixel.com/360/260" alt=""]
             p
               | Use this area of the page to describe your project. The icon above is part of a free icon set by
               a[href="https://sellfy.com/p/8Q9P/jV3VZ/"]

@@ -11,7 +11,94 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630174708) do
+ActiveRecord::Schema.define(version: 20150805104728) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "hstore"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "commentable_id",   null: false
+    t.string   "commentable_type", null: false
+    t.text     "content",          null: false
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "imageable_id",     null: false
+    t.string   "imageable_type",   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "img_file_name",    null: false
+    t.string   "img_content_type", null: false
+    t.integer  "img_file_size",    null: false
+    t.datetime "img_updated_at",   null: false
+  end
+
+  create_table "news", force: :cascade do |t|
+    t.string   "title",                       null: false
+    t.text     "content",                     null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "is_workshop", default: false, null: false
+  end
+
+  create_table "news_products", id: false, force: :cascade do |t|
+    t.integer "new_id"
+    t.integer "product_id"
+  end
+
+  add_index "news_products", ["new_id"], name: "index_news_products_on_new_id", using: :btree
+  add_index "news_products", ["product_id"], name: "index_news_products_on_product_id", using: :btree
+
+  create_table "products", force: :cascade do |t|
+    t.decimal  "price",       precision: 8, scale: 2
+    t.string   "dimensions"
+    t.string   "size"
+    t.hstore   "color"
+    t.text     "description"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "mark"
+    t.text     "description"
+    t.integer  "product_id",  null: false
+    t.integer  "user_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+
+  create_table "user_social_networks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -26,9 +113,19 @@ ActiveRecord::Schema.define(version: 20150630174708) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "videos", force: :cascade do |t|
+    t.text     "url",            null: false
+    t.integer  "videoable_id",   null: false
+    t.string   "videoable_type", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
 end

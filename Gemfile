@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -30,12 +29,24 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'devise'
+gem 'acts-as-taggable-on', '~> 3.4'
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'devise'
 gem 'gettext_i18n_rails'
 gem 'jquery-ui-rails'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-vkontakte'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'paperclip'
+gem 'recursive-open-struct'
 gem 'simple_form'
 gem 'slim-rails'
+
+group :development do
+  gem 'annotate'
+  gem 'rubocop'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -49,6 +60,9 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'gettext', '>=3.0.2', require: false, group: :development
+  gem 'ruby_parser', require: false, group: :development
 end
 
 group :production do

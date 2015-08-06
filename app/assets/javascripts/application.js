@@ -13,10 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 
-//= require jquery
 //= require bootstrap-sprockets
 //= require jquery-ui
 
-//= require_tree ./startbootstrap-freelancer
+//= require_tree .
