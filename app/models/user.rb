@@ -26,14 +26,15 @@ class User < ActiveRecord::Base
 
   has_many :reviews
   has_many :comments
+  has_many :user_social_networks
 
   def admin?
     ['gataniel@gmail.com', 'dygt@mail.ru'].include?(email)
   end
 
   def self.find_or_init_for_oauth(auth, current_user = nil)
-    social_link = UserSocialNetworks.find_by(uid: auth.uid, provider: auth.provider)
-    user = (current_user || social_link.try(:user))
+    social_link = UserSocialNetwork.find_by(uid: auth.uid, provider: auth.provider)
+    user = current_user ? current_user : social_link.try(:user)
 
     if user.nil?
       email = auth.info.email

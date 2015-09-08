@@ -8,7 +8,6 @@ ul#login-dp.dropdown-menu
         = _('Login via')
         - if devise_mapping.omniauthable?
           = render 'devise/sessions/omniauthable'
-
           hr
         = _('Login')
         form#login-nav
