@@ -14,11 +14,11 @@ nav.navbar.navbar-default.navbar-fixed-top
         - if current_user.try(:admin?)
           li
             = link_to _('Admin'), ''
+        li
+          = link_to _('Blog'), 'http://poskakushka.blogspot.be/', target: '_blank'
         li.page-scroll
           a[href="#shop"]
             | Shop
-        li
-          = link_to _('Blog'), 'http://poskakushka.blogspot.be/', target: '_blank'
         li.page-scroll
           a[href="#about"]
             | About

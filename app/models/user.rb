@@ -24,13 +24,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable, :trackable
   devise :database_authenticatable, :registerable, :validatable, :rememberable, :omniauthable, :recoverable
 
-  has_many :reviews
-  has_many :comments
-  has_many :user_social_networks
-
-  def admin?
-    ['gataniel@gmail.com', 'dygt@mail.ru'].include?(email)
-  end
+  has_many :reviews, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :user_social_networks, dependent: :destroy
 
   def self.find_or_init_for_oauth(auth, current_user = nil)
     social_link = UserSocialNetwork.find_by(uid: auth.uid, provider: auth.provider)
@@ -38,7 +34,7 @@ class User < ActiveRecord::Base
 
     if user.nil?
       email = auth.info.email
-      user = User.find_by(email: email) if email
+      user = User.find_by(email: email)
 
       if user.nil?
         case auth.provider
@@ -50,13 +46,13 @@ class User < ActiveRecord::Base
           first_name = auth.info.first_name
           last_name = auth.info.last_name
         end
-        user = User.new(
-          first_name: first_name,
-          last_name: last_name,
-          email: email
-        )
+        user = User.new(first_name: first_name, last_name: last_name, email: email, password: Devise.friendly_token[0, 10])
       end
     end
     user
-    end
+  end
+
+  def admin?
+    ['gataniel@gmail.com', 'dygt@mail.ru'].include?(email)
+  end
 end

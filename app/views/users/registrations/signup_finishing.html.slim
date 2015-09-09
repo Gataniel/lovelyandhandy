@@ -1,0 +1,7 @@
+= simple_form_for(@user, url: signup_finish_path, defaults: { label: false }) do |f|
+  .form-inputs
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :email
+
+  = f.submit _('Register')

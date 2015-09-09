@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    # get '/users/:id/social_link_confirmation' => 'users/registrations#social_link_confirmation', as: :social_link_confirmation
-    # patch '/users/:id/social_link_confirm' => 'users/registrations#social_link_confirm', as: :social_link_confirm
+    get '/users/:id/social_link_confirmation' => 'users/registrations#social_link_confirmation', as: :social_link_confirmation
+    patch '/users/:id/social_link_confirm' => 'users/registrations#social_link_confirm', as: :social_link_confirm
+    get '/users/signup_finishing' => 'users/registrations#signup_finishing', as: :signup_finishing
     post '/users/signup_finish' => 'users/registrations#signup_finish', as: :signup_finish
   end
 
