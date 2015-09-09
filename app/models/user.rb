@@ -28,6 +28,8 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :user_social_networks, dependent: :destroy
 
+  validates :first_name, :last_name, presence: true, length: { maximum: 255 }
+
   def self.find_or_init_for_oauth(auth, current_user = nil)
     social_link = UserSocialNetwork.find_by(uid: auth.uid, provider: auth.provider)
     user = current_user ? current_user : social_link.try(:user)
@@ -54,5 +56,9 @@ class User < ActiveRecord::Base
 
   def admin?
     ['gataniel@gmail.com', 'dygt@mail.ru'].include?(email)
+  end
+
+  def to_s
+    "#{first_name} #{last_name}"
   end
 end

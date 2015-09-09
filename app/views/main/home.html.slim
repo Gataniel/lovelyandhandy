@@ -13,7 +13,7 @@ nav.navbar.navbar-default.navbar-fixed-top
       ul.nav.navbar-nav.navbar-right
         - if current_user.try(:admin?)
           li
-            = link_to _('Admin'), ''
+            = link_to _('Admin'), admin_path
         li
           = link_to _('Blog'), 'http://poskakushka.blogspot.be/', target: '_blank'
         li.page-scroll

@@ -6,6 +6,7 @@
 #  price       :decimal(8, 2)
 #  dimensions  :string
 #  size        :string
+#  title       :string
 #  color       :hstore
 #  description :text
 #  created_at  :datetime         not null
