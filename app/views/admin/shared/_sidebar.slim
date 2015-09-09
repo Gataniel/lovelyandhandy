@@ -1,0 +1,80 @@
+.side-menu
+  nav.navbar.navbar-default role="navigation" 
+    /! Brand and toggle get grouped for better mobile display
+    .navbar-header
+      .brand-wrapper
+        /! Hamburger
+        button.navbar-toggle type="button" 
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        /! Brand
+        .brand-name-wrapper
+          = link_to 'LovelyAndHandy', root_path, class: 'navbar-brand'
+        /! Search
+        a#search-trigger.btn.btn-default data-toggle="collapse" href="#search" 
+          span.glyphicon.glyphicon-search
+        /! Search body
+        #search.panel-collapse.collapse
+          .panel-body
+            form.navbar-form role="search" 
+              .form-group
+                input.form-control placeholder="Search" type="text" /
+              button.btn.btn-default type="submit" 
+                span.glyphicon.glyphicon-ok
+    /! Main Menu
+    .side-menu-container
+      ul.nav.navbar-nav
+        li
+          = link_to admin_news_index_path
+            span.glyphicon.glyphicon-list-alt
+            | News
+        li
+          = link_to admin_products_path
+            span.glyphicon.glyphicon-list-alt
+            | Products
+        li
+          = link_to admin_users_path
+            span.glyphicon.glyphicon-user
+            | Users
+        li
+          a href="#" 
+            span.glyphicon.glyphicon-cloud
+            | Link
+        /! Dropdown
+        li#dropdown.panel.panel-default
+          a data-toggle="collapse" href="#dropdown-lvl1" 
+            span.glyphicon.glyphicon-user
+            | Sub Level
+            span.caret
+          /! Dropdown level 1
+          #dropdown-lvl1.panel-collapse.collapse
+            .panel-body
+              ul.nav.navbar-nav
+                li
+                  a href="#"  Link
+                li
+                  a href="#"  Link
+                li
+                  a href="#"  Link
+                /! Dropdown level 2
+                li#dropdown.panel.panel-default
+                  a data-toggle="collapse" href="#dropdown-lvl2" 
+                    span.glyphicon.glyphicon-off
+                    | Sub Level
+                    span.caret
+                  #dropdown-lvl2.panel-collapse.collapse
+                    .panel-body
+                      ul.nav.navbar-nav
+                        li
+                          a href="#"  Link
+                        li
+                          a href="#"  Link
+                        li
+                          a href="#"  Link
+        li
+          a href="#" 
+            span.glyphicon.glyphicon-signal
+            | Link
+    /! /.navbar-collapse

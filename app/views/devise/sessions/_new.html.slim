@@ -10,9 +10,8 @@ ul#login-dp.dropdown-menu
           = render 'devise/sessions/omniauthable'
           hr
         = _('Login')
-        form#login-nav
-          = render 'devise/sessions/form'
+        = render 'devise/sessions/form'
           hr
       .bottom.text-center
         = _('New here?')
-        =< link_to _('Join us'), new_user_registration_path
+        =< link_to _('Sign up'), new_user_registration_path

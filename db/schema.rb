@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150805104728) do
     t.decimal  "price",       precision: 8, scale: 2
     t.string   "dimensions"
     t.string   "size"
+    t.string   "title"
     t.hstore   "color"
     t.text     "description"
     t.datetime "created_at",                          null: false

@@ -17,6 +17,11 @@ en:
         email: 'Email'
         password: 'Password'
         password_confirmation: 'Confirm password'
+      product:
+        title: Title
+        description: Description
+        price: Price
+        size: Size
     # Examples
     # labels:
     #   defaults:

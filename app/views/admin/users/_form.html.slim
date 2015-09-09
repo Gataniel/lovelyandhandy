@@ -1,0 +1,11 @@
+= simple_form_for [:admin, @user], defaults: { label: false } do |f|
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :email
+  = f.input :password, as: :string
+  
+  = f.submit class: 'btn btn-primary'
+
+  .btn-group.pull-right
+    => link_to 'Back', admin_users_path, class: 'btn btn-primary'
+    = link_to 'Destroy', admin_user_path(@user), data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' if @user.persisted?
