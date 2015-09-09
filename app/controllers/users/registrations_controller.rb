@@ -5,24 +5,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   skip_before_filter :store_location,
                      only: [:signup_finish, :social_link_confirm, :social_link_confirmation]
 
-  def new
-    session[:omniauth] ? @user = User.new(user_params) : super
+  def signup_finishing
+    @user = User.new(user_params)
   end
 
-  def create
-    if session[:omniauth]
-      @user = User.new(user_params)
-      if @user_match = User.find_by(email: user_params[:email])
-        redirect_to social_link_confirmation_path(@user_match)
-      else
-        if @user.save
-          create_social_network(notice = I18n.t('devise.registrations.signed_up_but_unconfirmed'))
-        else
-          render :new
-        end
-      end
+  def signup_finish
+    @user = User.new(user_params)
+    if (@user_match = User.find_by(email: @user.email))
+      create_social_network(@user_match)
     else
-      super
+      if @user.save
+        create_social_network(@user)
+      else
+        render :signup_finishing
+      end
     end
   end
 
@@ -33,22 +29,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def social_link_confirm
     @user = User.find(params[:id])
     if @user.valid_password?(params[:user][:password])
-      # TODO: SET NOTICE
-      create_social_network(notice = _(''), provider: session[:omniauth].provider))
+      create_social_network
     else
       @user.errors.add(:password, I18n.t('errors.messages.invalid'))
       render :social_link_confirmation
     end
   end
-
-  # def update_password
-  #   @user = current_user
-  #   if @user.update_with_password(user_password_params)
-  #     # Sign in the user by passing validation in case their password changed
-  #     sign_in @user, bypass: true
-  #     flash[:notice] = I18n.t('devise.passwords.updated_not_active')
-  #   end
-  # end
 
   protected
 
@@ -63,17 +49,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
 
-  # def user_params
-  #   params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
-  # end
+  def user_params
+    params.require(:user).permit(:email, :first_name, :last_name).merge(password: Devise.friendly_token[0, 10])
+  end
   #
   # def user_password_params
   #   params.require(:user).permit(:current_password, :password, :password_confirmation)
   # end
 
-  def create_social_network(notice)
-    @user.user_social_networks.create(uid: session[:omniauth]['uid'], provider: session[:omniauth]['provider'])
-    redirect_to root_url, notice: notice
+  def create_social_network(user)
+    user.user_social_networks.create(uid: session[:omniauth]['uid'], provider: session[:omniauth]['provider'])
+    sign_in_and_redirect user, event: :authentication
     session.delete(:omniauth)
   end
 

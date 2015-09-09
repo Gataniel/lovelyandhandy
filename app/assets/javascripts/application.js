@@ -17,4 +17,7 @@
 //= require bootstrap-sprockets
 //= require jquery-ui
 
+//= require sweet-alert
+//= require sweet-alert-confirm
+
 //= require_tree .
