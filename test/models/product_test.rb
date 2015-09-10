@@ -4,10 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  price       :decimal(8, 2)
-#  dimensions  :string
-#  size        :string
 #  title       :string
-#  color       :hstore
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

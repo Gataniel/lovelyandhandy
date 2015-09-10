@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/', to: 'overviews#index'
-    resources :products, :news, :users
+    get '/tags', to: 'overviews#tags'
+    resources :users, :blogs, :products
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

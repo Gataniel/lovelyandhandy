@@ -14,6 +14,9 @@
  *= require_self
  *= require jquery-ui
 
+ *= require select2
+ *= require select2-bootstrap
+
  */
 
 @import "bootstrap-sprockets";
@@ -22,3 +25,4 @@
 @import "admin/sidebar";
 @import "admin/users";
 @import "admin/bootstrap_custom";
+@import "admin/responsive";

@@ -12,9 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery_nested_form
 //= require turbolinks
 
 //= require bootstrap-sprockets
 //= require jquery-ui
+//= require select2
+//= require admin/init_select2
 
 //= require_tree .
+
+// $(document).ready(function() { $('.tag-list').select2( { tags:[] } ) });
+
+$(function() {
+  $(document).on("ready page:load", function () {
+    initSelect2($('input.tag-list'));
+  });
+});

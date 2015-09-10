@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use SCSS for stylesheets
@@ -35,6 +34,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'devise'
 gem 'gettext_i18n_rails'
 gem 'jquery-ui-rails'
+gem 'nested_form'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-vkontakte'
 gem 'omniauth-facebook'
@@ -45,9 +45,12 @@ gem 'recursive-open-struct'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'sweet-alert'
+gem 'select2-rails'
 gem 'sweet-alert-confirm'
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'annotate'
   gem 'awesome_print'
   gem 'quiet_assets'

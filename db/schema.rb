@@ -15,7 +15,22 @@ ActiveRecord::Schema.define(version: 20150805104728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "hstore"
+
+  create_table "blogs", force: :cascade do |t|
+    t.string   "title",                       null: false
+    t.text     "content",                     null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "is_workshop", default: false, null: false
+  end
+
+  create_table "blogs_products", id: false, force: :cascade do |t|
+    t.integer "blog_id"
+    t.integer "product_id"
+  end
+
+  add_index "blogs_products", ["blog_id"], name: "index_blogs_products_on_blog_id", using: :btree
+  add_index "blogs_products", ["product_id"], name: "index_blogs_products_on_product_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id",   null: false
@@ -37,28 +52,9 @@ ActiveRecord::Schema.define(version: 20150805104728) do
     t.datetime "img_updated_at",   null: false
   end
 
-  create_table "news", force: :cascade do |t|
-    t.string   "title",                       null: false
-    t.text     "content",                     null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.boolean  "is_workshop", default: false, null: false
-  end
-
-  create_table "news_products", id: false, force: :cascade do |t|
-    t.integer "new_id"
-    t.integer "product_id"
-  end
-
-  add_index "news_products", ["new_id"], name: "index_news_products_on_new_id", using: :btree
-  add_index "news_products", ["product_id"], name: "index_news_products_on_product_id", using: :btree
-
   create_table "products", force: :cascade do |t|
     t.decimal  "price",       precision: 8, scale: 2
-    t.string   "dimensions"
-    t.string   "size"
     t.string   "title"
-    t.hstore   "color"
     t.text     "description"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false

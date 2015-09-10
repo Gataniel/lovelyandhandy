@@ -12,4 +12,6 @@
 
 class Video < ActiveRecord::Base
   belongs_to :videoable, polymorphic: true
+
+  validates_presence_of :videoable_id, :videoable_type, :url
 end

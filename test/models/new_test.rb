@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: news
+# Table name: @blogs
 #
 #  id          :integer          not null, primary key
 #  title       :string           not null

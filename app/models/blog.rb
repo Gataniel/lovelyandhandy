@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: news
+# Table name: @blogs
 #
 #  id          :integer          not null, primary key
 #  title       :string           not null
@@ -10,7 +10,7 @@
 #  is_workshop :boolean          default(FALSE), not null
 #
 
-class New < ActiveRecord::Base
+class Blog < ActiveRecord::Base
   acts_as_taggable
 
   has_many :images,  as: :imageable,   dependent: :destroy
