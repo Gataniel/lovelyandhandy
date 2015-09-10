@@ -1,0 +1,10 @@
+= f.simple_fields_for :images do |image|
+  .form-group
+    - if image.object.img.present?
+      = image_tag image.object.img.url(:small)
+    - else
+      = image.input :img
+  .form-group
+    = image.link_to_remove _('Remove this image'), class: 'btn btn-danger'
+.form-group
+  = f.link_to_add _('Add an image'), :images, class: 'btn btn-success'

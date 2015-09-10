@@ -1,12 +1,17 @@
-= simple_form_for [:admin, @product], defaults: { label: false } do |f|
-  = f.input :title
-  = f.input :price
-  = f.input :size
-  / = f.input :color
-  = f.input :description
-  
-  = f.submit class: 'btn btn-primary'
+= simple_nested_form_for [:admin, @product], defaults: { label: false } do |f|
+  .col-sm-4
+    = f.input :title
+    = f.input :price
+    = f.input :description
+    = f.input :tag_list, input_html: { class: 'tag-list', data: { url: admin_tags_url,
+      value: f.object.tag_list.any? ? f.object.tag_list.join(', ') : nil } }
+    
+    = f.submit class: 'btn btn-primary'
 
-  .btn-group.pull-right
-    => link_to 'Back', admin_products_path, class: 'btn btn-primary'
-    = link_to 'Destroy', admin_product_path(@product), data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' if @product.persisted?
+    .btn-group.pull-right
+      => link_to _('Back'), [:admin, :products], class: 'btn btn-primary'
+      = link_to _('Destroy'), [:admin, @product], data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' if @product.persisted?
+  .col-sm-4
+    = render 'form_images', f: f
+  .col-sm-4
+    = render 'form_videos', f: f

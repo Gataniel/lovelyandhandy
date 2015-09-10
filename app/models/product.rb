@@ -4,10 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  price       :decimal(8, 2)
-#  dimensions  :string
-#  size        :string
 #  title       :string
-#  color       :hstore
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -18,9 +15,12 @@ class Product < ActiveRecord::Base
 
   has_many :images, as: :imageable, dependent: :destroy
   has_many :videos, as: :videoable, dependent: :destroy
-  has_many :reviews
-  has_and_belongs_to_many :news
+  has_many :reviews, dependent: :destroy
+  has_and_belongs_to_many :blogs
 
   validates_presence_of :price, :title, :description
   validates_length_of :title, :description, maximum: 30
+
+  accepts_nested_attributes_for :images, allow_destroy: true
+  accepts_nested_attributes_for :videos, allow_destroy: true
 end

@@ -9,19 +9,19 @@
       tr
         th ID
         th Title
-        th Color
         th Description
+        th Tags
         th.text-center Action
     tbody
       - @products.each do |product|
         tr
           td.v-align = product.id
           td.v-align = product.title
-          td.v-align = product.color
           td.v-align = product.description
+          td.v-align = product.tag_list
           td.text-center
             .btn-group
-              = link_to edit_admin_new_path(product), class: 'btn btn-warning btn-md'
+              = link_to edit_admin_product_path(product), class: 'btn btn-warning btn-md'
                 span.glyphicon.glyphicon-edit
-              = link_to admin_new_path(product), class: 'btn btn-danger btn-md', method: :delete, data: { confirm: 'Are you sure? ' }
+              = link_to admin_product_path(product), class: 'btn btn-danger btn-md', method: :delete, data: { confirm: 'Are you sure? ' }
                 span.glyphicon.glyphicon-remove

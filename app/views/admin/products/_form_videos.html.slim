@@ -1,0 +1,10 @@
+= f.simple_fields_for :videos do |video|
+  .form-group
+    = video.input :url
+    - if video.object.persisted?
+      .embed-container
+        = video.object.url.html_safe
+  .form-group
+    = video.link_to_remove _('Remove this video'), class: 'btn btn-danger'
+.form-group
+  = f.link_to_add _('Add a video'), :videos, class: 'btn btn-success'
