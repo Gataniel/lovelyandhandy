@@ -15,9 +15,13 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/', to: 'overviews#index'
-    get '/tags', to: 'overviews#tags'
+    # get '/tags', to: 'overviews#tags'
     resources :users, :blogs, :products
+    namespace :acts_as_taggable_on do
+      resources :tags, except: %i(new create)
+    end
   end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
