@@ -1,5 +1,5 @@
-ul.list-inline
-  - if devise_mapping.omniauthable?
+- if devise_mapping.omniauthable?
+  ul.list-inline.omni
     - User.omniauth_providers.each do |provider|
       li
         = link_to user_omniauth_authorize_path(provider), class: 'btn-social btn-outline' do
