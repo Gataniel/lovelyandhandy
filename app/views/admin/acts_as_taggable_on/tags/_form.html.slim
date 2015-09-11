@@ -5,4 +5,5 @@
 
   .btn-group.pull-right
     => link_to 'Back', admin_acts_as_taggable_on_tags_path, class: 'btn btn-primary'
-    = link_to 'Destroy', admin_acts_as_taggable_on_tag_path(@tag), data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' if @tag.persisted?
+    = link_to 'Destroy', admin_acts_as_taggable_on_tag_path(@tag), data: { confirm: 'Are you sure?' },
+      class: 'btn btn-danger' if @tag.persisted?

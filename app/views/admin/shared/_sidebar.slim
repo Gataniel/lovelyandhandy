@@ -35,6 +35,10 @@
             span.glyphicon.glyphicon-list-alt
             = _('Products')
         li
+          = link_to admin_reviews_path
+            span.glyphicon.glyphicon-list-alt
+            = _('Reviews')
+        li
           = link_to admin_users_path
             span.glyphicon.glyphicon-user
             = _('Users')
@@ -42,13 +46,15 @@
           = link_to admin_acts_as_taggable_on_tags_path
             span.glyphicon.glyphicon-tags
             = _('Tags')
-        /! Dropdown
-        li#dropdown.panel.panel-default
+        li 
+          = link_to 'http://poskakushka.blogspot.be', target: '_blank'
+            span.glyphicon.glyphicon-gift
+            = _('Творилки')
+        / li#dropdown.panel.panel-default
           a data-toggle="collapse" href="#dropdown-lvl1" 
             span.glyphicon.glyphicon-user
             | Sub Level
             span.caret
-          /! Dropdown level 1
           #dropdown-lvl1.panel-collapse.collapse
             .panel-body
               ul.nav.navbar-nav
@@ -73,8 +79,3 @@
                           a href="#"  Link
                         li
                           a href="#"  Link
-        li
-          a href="#" 
-            span.glyphicon.glyphicon-signal
-            | Link
-    /! /.navbar-collapse
