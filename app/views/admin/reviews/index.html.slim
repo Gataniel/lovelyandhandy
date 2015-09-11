@@ -1,0 +1,27 @@
+.panel.panel-default
+  .panel-heading
+    | Reviews
+  / .panel-body
+    
+  table.table.table-bordered.table-hover.table-condensed
+    thead
+      tr
+        th ID
+        th Description
+        th Product
+        th User
+        th.text-center Action
+    tbody
+      - @reviews.each do |review|
+        tr
+          td.v-align = review.id
+          td.v-align = review.description
+          td.v-align 
+          = link_to review.product.title, [:admin, @review.product]
+          td.v-align = review.user.to_s
+          td.text-center
+            .btn-group
+              = link_to edit_admin_review_path(review), class: 'btn btn-warning btn-md'
+                span.glyphicon.glyphicon-edit
+              = link_to admin_review_path(review), class: 'btn btn-danger btn-md', method: :delete, data: { confirm: 'Are you sure? ' }
+                span.glyphicon.glyphicon-remove

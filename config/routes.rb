@@ -15,8 +15,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/', to: 'overviews#index'
-    # get '/tags', to: 'overviews#tags'
-    resources :users, :blogs, :products
+    resources :users, :blogs, :products, :reviews
     namespace :acts_as_taggable_on do
       resources :tags, except: %i(new create)
     end

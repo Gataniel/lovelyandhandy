@@ -1,0 +1,10 @@
+= simple_nested_form_for [:admin, @review], defaults: { label: false } do |f|
+  .col-sm-4
+    = f.input :mark
+    = f.input :description
+    
+    = f.submit class: 'btn btn-primary'
+
+    .btn-group.pull-right
+      => link_to _('Back'), [:admin, :reviews], class: 'btn btn-primary'
+      = link_to _('Destroy'), [:admin, @review], data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' if @review.persisted?
