@@ -1,2 +1,11 @@
 - @blogs.each do |blog|
+  = blog.title
   = blog.content.html_safe
+  
+  = _('Tags')
+  .list-group
+  - blog.tags.each do |tag|
+    = link_to '#', class: 'list-group-item' do
+      = tag.name
+      span.badge
+        = tag.taggings_count
