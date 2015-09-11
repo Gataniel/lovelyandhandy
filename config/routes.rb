@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     omniauth_callbacks: 'users/omniauth_callbacks'
@@ -14,13 +15,14 @@ Rails.application.routes.draw do
   root 'main#home'
 
   namespace :admin do
+    mount Ckeditor::Engine => '/ckeditor'
+
     get '/', to: 'overviews#index'
     resources :users, :blogs, :products, :reviews
     namespace :acts_as_taggable_on do
       resources :tags, except: %i(new create)
     end
   end
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

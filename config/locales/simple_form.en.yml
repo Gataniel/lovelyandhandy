@@ -22,6 +22,8 @@ en:
         description: Description
         price: Price
         size: Size
+      blog:
+        title: Title
     # Examples
     # labels:
     #   defaults:

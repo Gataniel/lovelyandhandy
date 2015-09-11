@@ -31,6 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'ckeditor'
 gem 'devise'
 gem 'gettext_i18n_rails'
 gem 'jquery-ui-rails'
