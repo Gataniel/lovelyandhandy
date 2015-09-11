@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   root 'main#home'
 
+  resources :blogs, only: %i(index show)
+
   namespace :admin do
     mount Ckeditor::Engine => '/ckeditor'
 

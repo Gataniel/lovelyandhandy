@@ -27,23 +27,23 @@
     .side-menu-container
       ul.nav.navbar-nav
         li
-          = link_to admin_blogs_path
+          = active_link_to admin_blogs_path
             span.glyphicon.glyphicon-list-alt
             = _('Blogs')
         li
-          = link_to admin_products_path
+          = active_link_to admin_products_path
             span.glyphicon.glyphicon-list-alt
             = _('Products')
         li
-          = link_to admin_reviews_path
+          = active_link_to admin_reviews_path
             span.glyphicon.glyphicon-list-alt
             = _('Reviews')
         li
-          = link_to admin_users_path
+          = active_link_to admin_users_path
             span.glyphicon.glyphicon-user
             = _('Users')
         li 
-          = link_to admin_acts_as_taggable_on_tags_path
+          = active_link_to admin_acts_as_taggable_on_tags_path
             span.glyphicon.glyphicon-tags
             = _('Tags')
         li 

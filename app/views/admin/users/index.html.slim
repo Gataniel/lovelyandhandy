@@ -1,26 +1,26 @@
-.panel.panel-default
-  .panel-heading
-    | Users
-  .panel-body
-    = link_to 'Create User', new_admin_user_path, class: 'btn btn-primary pull-right'
+.form-group
+  .col-sm-2 
+    = link_to _('Create User'), new_admin_user_path, class: 'btn btn-success'
+  .col-sm-10
+    = render 'form_search'
     
-  table.table.table-bordered.table-hover.table-condensed
-    thead
+table.table.table-bordered.table-hover.table-condensed
+  thead
+    tr
+      th = sort_link(@q, :id)
+      th = _('Name')
+      th = sort_link(@q, :email)
+      th.text-center Action
+  tbody
+    - @users.each do |user|
       tr
-        th ID
-        th Name
-        th Email
-        th.text-center Action
-    tbody
-      - @users.each do |user|
-        tr
-          td.v-align = user.id
-          td.v-align = user.to_s
-          td.v-align = user.email
-          td.text-center
-            .btn-group
-              = link_to edit_admin_user_path(user), class: 'btn btn-warning btn-md'
-                span.glyphicon.glyphicon-edit
-              - if current_user != user
-                = link_to admin_user_path(user), class: 'btn btn-danger btn-md', method: :delete, data: { confirm: 'Are you sure? ' }
-                  span.glyphicon.glyphicon-remove
+        td.id = user.id
+        th.title = user.to_s
+        th = user.email
+        td.text-center
+          .btn-group
+            = link_to edit_admin_user_path(user), class: 'btn btn-warning btn-md'
+              span.glyphicon.glyphicon-edit
+            - if current_user != user
+              = link_to admin_user_path(user), class: 'btn btn-danger btn-md', method: :delete, data: { confirm: _('Are you sure?') }
+                span.glyphicon.glyphicon-remove

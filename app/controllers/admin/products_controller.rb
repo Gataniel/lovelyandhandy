@@ -2,7 +2,8 @@ class Admin::ProductsController < Admin::ApplicationController
   before_action :find_product, only: %i(edit update destroy)
 
   def index
-    @products = Product.all
+    @q = Product.search(params[:q])
+    @products = @q.result(distinct: true)
   end
 
   def new

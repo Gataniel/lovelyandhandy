@@ -10,7 +10,7 @@
 
     .btn-group.pull-right
       => link_to _('Back'), [:admin, :products], class: 'btn btn-primary'
-      = link_to _('Destroy'), [:admin, @product], data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' if @product.persisted?
+      = link_to _('Destroy'), [:admin, @product], data: { confirm: _('Are you sure?') }, class: 'btn btn-danger' if @product.persisted?
   .col-sm-4
     = render 'form_images', f: f
   .col-sm-4

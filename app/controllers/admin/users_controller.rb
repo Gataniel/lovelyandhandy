@@ -2,7 +2,8 @@ class Admin::UsersController < Admin::ApplicationController
   before_action :find_user, only: %i(edit update destroy)
 
   def index
-    @users = User.all
+    @q = User.search(params[:q])
+    @users = @q.result(distinct: true)
   end
 
   def new

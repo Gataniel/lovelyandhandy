@@ -21,6 +21,7 @@
 //= require admin/init_select2
 
 //= require ckeditor/init
+//= require admin/sidebar
 
 //= require_tree .
 
@@ -30,4 +31,5 @@ $(function() {
   $(document).on("ready page:load", function () {
     initSelect2($('input.tag-list'));
   });
+
 });

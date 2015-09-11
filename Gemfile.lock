@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/activerecord-hackery/ransack.git
+  revision: bcce3a0d96789c656e1cad7e58f1da348f745a13
+  branch: rails-4.2
+  specs:
+    ransack (1.2.4)
+      actionpack (~> 4.2.0)
+      activerecord (~> 4.2.0)
+      activesupport (~> 4.2.0)
+      i18n
+      polyamorous (~> 1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -20,6 +32,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_link_to (1.0.3)
+      actionpack
     activejob (4.2.3)
       activesupport (= 4.2.3)
       globalid (>= 0.3.0)
@@ -159,6 +173,8 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.18.2)
+    polyamorous (1.2.0)
+      activerecord (>= 3.0)
     puma (2.13.4)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
@@ -259,6 +275,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_link_to
   acts-as-taggable-on (~> 3.4)
   annotate
   awesome_print
@@ -285,6 +302,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.2.3)
   rails_12factor
+  ransack!
   recursive-open-struct
   ruby_parser
   sass-rails (~> 5.0)

@@ -4,7 +4,8 @@ class Admin::ActsAsTaggableOn::TagsController < Admin::ApplicationController
   def index
     respond_to do |format|
       format.html do
-        @tags = ActsAsTaggableOn::Tag.all
+        @q = ActsAsTaggableOn::Tag.search(params[:q])
+        @tags = @q.result(distinct: true)
       end
 
       format.json do

@@ -2,7 +2,8 @@ class Admin::ReviewsController < Admin::ApplicationController
   before_action :find_review, except: :index
 
   def index
-    @reviews = Review.all
+    @q = Review.search(params[:q])
+    @reviews = @q.result(distinct: true)
   end
 
   def edit; end

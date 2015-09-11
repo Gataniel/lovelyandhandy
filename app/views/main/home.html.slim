@@ -1,35 +1,4 @@
-nav.navbar.navbar-default.navbar-fixed-top
-  .container-fluid
-    .navbar-header.page-scroll
-      button.navbar-toggle[type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"]
-        span.sr-only
-          | Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a.navbar-brand[href="#page-top"]
-        | Lovely And Handy
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      ul.nav.navbar-nav.navbar-right
-        - if current_user.try(:admin?)
-          li
-            = link_to _('Admin'), admin_path
-        li
-          = link_to _('Blog'), 'http://poskakushka.blogspot.be/', target: '_blank'
-        li.page-scroll
-          a[href="#shop"]
-            | Shop
-        li.page-scroll
-          a[href="#about"]
-            | About
-        li.page-scroll
-          a[href="#contact"]
-            | Contact
-        li.dropdown
-          - if current_user
-            = link_to _('Log Out'), destroy_user_session_path, method: :delete
-          - else
-            = render 'devise/sessions/new'
+= render 'navbar'
 header
   = render 'carousel'
 
