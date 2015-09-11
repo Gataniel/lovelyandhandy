@@ -1,30 +1,31 @@
-nav.navbar.navbar-default.navbar-fixed-top
-  .container-fluid
-    .navbar-header.page-scroll
-      button.navbar-toggle[type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"]
-        span.sr-only
-          | Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      = link_to _('LovelyAndHandy'), '#page-top', class: 'navbar-brand'
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      ul.nav.navbar-nav.navbar-right
-        - if current_user.try(:admin?)
+#page-top
+  nav.navbar.navbar-default.navbar-fixed-top
+    .container-fluid
+      .navbar-header.page-scroll
+        button.navbar-toggle[type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"]
+          span.sr-only
+            | Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        = link_to _('LovelyAndHandy'), '#page-top', class: 'navbar-brand'
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          - if current_user.try(:admin?)
+            li
+              = link_to _('Admin'), admin_path
           li
-            = link_to _('Admin'), admin_path
-        li
-          = link_to _('Blog'), 'http://poskakushka.blogspot.be/', target: '_blank'
-        li
-          = link_to _('News'), blogs_path
-        li.page-scroll
-          = link_to _('Shop'), '#shop'
-        li.page-scroll
-          = link_to _('About'), '#about'
-        li.page-scroll
-          = link_to _('Contact'), '#contact'
-        li.dropdown
-          - if current_user
-            = link_to _('Log Out'), destroy_user_session_path, method: :delete
-          - else
-            = render 'devise/sessions/new'
+            = link_to _('Blog'), 'http://poskakushka.blogspot.be/', target: '_blank'
+          li
+            = link_to _('News'), blogs_path
+          li.page-scroll
+            = link_to _('Shop'), '#shop'
+          li.page-scroll
+            = link_to _('About'), '#about'
+          li.page-scroll
+            = link_to _('Contact'), '#contact'
+          li.dropdown
+            - if current_user
+              = link_to _('Log Out'), destroy_user_session_path, method: :delete
+            - else
+              = render 'devise/sessions/new'
