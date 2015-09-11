@@ -1,0 +1,8 @@
+= search_form_for [:admin, @q], defaults: { label: false } do |f|
+  .col-sm-5
+    = f.input :title_cont
+  .col-sm-5
+    = f.input :tags_name_cont
+  .col-sm-2
+    = f.submit class: 'btn btn-primary'
+  

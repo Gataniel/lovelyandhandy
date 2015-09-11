@@ -17,4 +17,7 @@ class Blog < ActiveRecord::Base
   has_many :videos,  as: :videoable,   dependent: :destroy
   has_many :commets, as: :commentable, dependent: :destroy
   has_and_belongs_to_many :products
+
+  validates_presence_of :title, :content
+  validates_length_of :title, maximum: 255
 end
