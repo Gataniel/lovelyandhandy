@@ -47,6 +47,10 @@
             span.glyphicon.glyphicon-tags
             = _('Tags')
         li 
+          = link_to edit_admin_about_section_path(AboutSection.take), target: '_blank'
+            span.glyphicon.glyphicon-font
+            = _('About section')
+        li 
           = link_to 'http://poskakushka.blogspot.be', target: '_blank'
             span.glyphicon.glyphicon-gift
             = _('Творилки')
