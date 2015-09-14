@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
     get '/', to: 'overviews#index'
     resources :users, :blogs, :products, :reviews
+    resources :about_sections, only: %i(edit update)
     namespace :acts_as_taggable_on do
       resources :tags, except: %i(new create)
     end
