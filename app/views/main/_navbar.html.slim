@@ -20,10 +20,9 @@
             = link_to _('News'), blogs_path
           li.page-scroll
             = link_to _('Shop'), '#shop'
-          li.page-scroll
-            = link_to _('About'), '#about'
-          li.page-scroll
-            = link_to _('Contact'), '#contact'
+          - if @about
+            li.page-scroll 
+              = link_to _('About'), '#about'
           li.dropdown
             - if current_user
               = link_to _('Log Out'), destroy_user_session_path, method: :delete

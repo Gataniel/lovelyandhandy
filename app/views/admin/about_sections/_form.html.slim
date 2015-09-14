@@ -1,0 +1,11 @@
+= simple_form_for [:admin, @about], defaults: { label: false } do |f|
+  .col-sm-6
+    = f.input :content, input_html: { rows: 7 }
+  .col-sm-6
+    = f.input :video_url
+  .col-sm-2
+    = f.input :mail_to
+  .col-sm-12
+    .btn-group
+      = f.submit class: 'btn btn-primary'
+      = link_to _('Back'), [:admin], class: 'btn btn-primary'
