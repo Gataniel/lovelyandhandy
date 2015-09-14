@@ -11,6 +11,14 @@ en:
     error_notification:
       default_message: "Please review the problems below:"
     placeholders:
+      q:
+        name_cont: "name contains"
+        title_cont: "title contains"
+        first_name_cont: "first name contains"
+        last_name_cont: "last name contains"
+        email_cont: "email contains"
+        description_cont: "description contains"
+        tags_name_cont: "tags contain"
       user:
         first_name: First name
         last_name: Last name
@@ -22,6 +30,9 @@ en:
         description: Description
         price: Price
         size: Size
+      blog:
+        title: Title
+        description: Description
     # Examples
     # labels:
     #   defaults:

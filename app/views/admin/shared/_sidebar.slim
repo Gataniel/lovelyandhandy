@@ -23,58 +23,33 @@
                 input.form-control placeholder="Search" type="text" /
               button.btn.btn-default type="submit" 
                 span.glyphicon.glyphicon-ok
-    /! Main Menu
     .side-menu-container
       ul.nav.navbar-nav
         li
-          = link_to admin_blogs_path
+          = active_link_to admin_blogs_path
             span.glyphicon.glyphicon-list-alt
             = _('Blogs')
         li
-          = link_to admin_products_path
+          = active_link_to admin_products_path
             span.glyphicon.glyphicon-list-alt
             = _('Products')
         li
-          = link_to admin_users_path
+          = active_link_to admin_reviews_path
+            span.glyphicon.glyphicon-list-alt
+            = _('Reviews')
+        li
+          = active_link_to admin_users_path
             span.glyphicon.glyphicon-user
             = _('Users')
         li 
-          = link_to admin_acts_as_taggable_on_tags_path
+          = active_link_to admin_acts_as_taggable_on_tags_path
             span.glyphicon.glyphicon-tags
             = _('Tags')
-        /! Dropdown
-        li#dropdown.panel.panel-default
-          a data-toggle="collapse" href="#dropdown-lvl1" 
-            span.glyphicon.glyphicon-user
-            | Sub Level
-            span.caret
-          /! Dropdown level 1
-          #dropdown-lvl1.panel-collapse.collapse
-            .panel-body
-              ul.nav.navbar-nav
-                li
-                  a href="#"  Link
-                li
-                  a href="#"  Link
-                li
-                  a href="#"  Link
-                /! Dropdown level 2
-                li#dropdown.panel.panel-default
-                  a data-toggle="collapse" href="#dropdown-lvl2" 
-                    span.glyphicon.glyphicon-off
-                    | Sub Level
-                    span.caret
-                  #dropdown-lvl2.panel-collapse.collapse
-                    .panel-body
-                      ul.nav.navbar-nav
-                        li
-                          a href="#"  Link
-                        li
-                          a href="#"  Link
-                        li
-                          a href="#"  Link
-        li
-          a href="#" 
-            span.glyphicon.glyphicon-signal
-            | Link
-    /! /.navbar-collapse
+        li 
+          = link_to edit_admin_about_section_path(AboutSection.take), target: '_blank'
+            span.glyphicon.glyphicon-font
+            = _('About')
+        li 
+          = link_to 'http://poskakushka.blogspot.be', target: '_blank'
+            span.glyphicon.glyphicon-gift
+            = _('Творилки')

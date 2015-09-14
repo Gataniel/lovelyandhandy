@@ -29,8 +29,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'active_link_to'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'ckeditor'
 gem 'devise'
 gem 'gettext_i18n_rails'
 gem 'jquery-ui-rails'
@@ -41,6 +43,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'paperclip'
 gem 'puma'
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.2'
 gem 'recursive-open-struct'
 gem 'simple_form'
 gem 'slim-rails'

@@ -20,6 +20,9 @@
 //= require select2
 //= require admin/init_select2
 
+//= require ckeditor/init
+//= require admin/sidebar
+
 //= require_tree .
 
 // $(document).ready(function() { $('.tag-list').select2( { tags:[] } ) });
@@ -28,4 +31,5 @@ $(function() {
   $(document).on("ready page:load", function () {
     initSelect2($('input.tag-list'));
   });
+
 });

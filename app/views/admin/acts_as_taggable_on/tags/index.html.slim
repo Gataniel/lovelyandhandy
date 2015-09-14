@@ -1,20 +1,18 @@
-.panel.panel-default
-  .panel-heading
-    = _('Tags')
-  / .panel-body
-    
-  table.table.table-bordered.table-hover.table-condensed
-    thead
+.form-group
+  .col-sm-12
+    = render 'form_search'
+table.table.table-bordered.table-hover.table-condensed
+  thead
+    tr
+      th = sort_link(@q, :name)
+      th.text-center = _('Action')
+  tbody
+    - @tags.each do |tag|
       tr
-        th = _('Name')
-        th.text-center = _('Action')
-    tbody
-      - @tags.each do |tag|
-        tr
-          td.v-align = tag.name
-          td.text-center
-            .btn-group
-              = link_to edit_admin_acts_as_taggable_on_tag_path(tag), class: 'btn btn-warning btn-md'
-                span.glyphicon.glyphicon-edit
-              = link_to admin_acts_as_taggable_on_tag_path(tag), class: 'btn btn-danger btn-md', method: :delete, data: { confirm: 'Are you sure? ' }
-                span.glyphicon.glyphicon-remove
+        td = tag.name
+        td.text-center
+          .btn-group
+            = link_to edit_admin_acts_as_taggable_on_tag_path(tag), class: 'btn btn-warning btn-md'
+              span.glyphicon.glyphicon-edit
+            = link_to admin_acts_as_taggable_on_tag_path(tag), class: 'btn btn-danger btn-md', method: :delete, data: { confirm: 'Are you sure? ' }
+              span.glyphicon.glyphicon-remove

@@ -1,0 +1,21 @@
+table.table.table-bordered.table-hover.table-condensed
+  thead
+    tr
+      th = sort_link(@q, :id)
+      th = sort_link(@q, :description)
+      th = sort_link(@q, :product)
+      th = sort_link(@q, :user)
+      th.text-center Action
+  tbody
+    - @reviews.each do |review|
+      tr
+        td.id = review.id
+        td = review.description
+        td = link_to review.product.title, [:admin, @review.product]
+        td = review.user.to_s
+        td.text-center
+          .btn-group
+            = link_to edit_admin_review_path(review), class: 'btn btn-warning btn-md'
+              span.glyphicon.glyphicon-edit
+            = link_to admin_review_path(review), class: 'btn btn-danger btn-md', method: :delete, data: { confirm: 'Are you sure? ' }
+              span.glyphicon.glyphicon-remove

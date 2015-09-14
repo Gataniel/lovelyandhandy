@@ -1,0 +1,8 @@
+.tags
+  = _('Tags')
+  .list-group
+    - @tags || ActsAsTaggableOn::Tag.joins(:taggings).where("taggings.taggable_type = 'Blog'").each do |tag|
+      = link_to '#', class: 'list-group-item' do
+        = tag.name
+        span.badge
+          = tag.taggings_count

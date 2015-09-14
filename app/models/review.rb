@@ -14,4 +14,7 @@
 class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :product
+
+  validates_presence_of :mark, :product_id
+  validates :mark, inclusion: { in: 1..5 }
 end

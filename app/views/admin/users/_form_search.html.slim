@@ -1,0 +1,10 @@
+= search_form_for [:admin, @q], defaults: { label: false } do |f|
+  .col-sm-3
+    = f.input :first_name_cont
+  .col-sm-3
+    = f.input :last_name_cont
+  .col-sm-3
+    = f.input :email_cont, as: :string
+  .col-sm-3
+    = f.submit class: 'btn btn-primary'
+  

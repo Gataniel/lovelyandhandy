@@ -2,7 +2,8 @@ class Admin::BlogsController < Admin::ApplicationController
   before_action :find_new, only: %i(edit update destroy)
 
   def index
-    @blogs = Blog.all
+    @q = Blog.search(params[:q])
+    @blogs = @q.result(distinct: true)
   end
 
   def new
@@ -10,9 +11,9 @@ class Admin::BlogsController < Admin::ApplicationController
   end
 
   def create
-    @blog = Blog.new(new_params)
+    @blog = Blog.new(blog_params)
     if @blog.save
-      redirect_to action: :index, notice: 'New successfully created'
+      redirect_to action: :index, notice: 'Blog successfully created'
     else
       render :new
     end
@@ -21,17 +22,25 @@ class Admin::BlogsController < Admin::ApplicationController
   def edit; end
 
   def update
-
+    if @blog.update(blog_params)
+      redirect_to action: :index, notice: 'Blog successfully updated'
+    else
+      render :edit
+    end
   end
 
   def destroy
-
+    if @blog.destroy
+      redirect_to action: :index, notice: 'Blog successfully destroyed'
+    else
+      redirect_to action: :index, notice: 'Something whent wrong'
+    end
   end
 
   private
 
-  def new_params
-    params.require(:new).permit!
+  def blog_params
+    params.require(:blog).permit!
   end
 
   def find_new
