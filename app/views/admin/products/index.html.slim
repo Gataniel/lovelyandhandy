@@ -3,7 +3,7 @@
     = link_to _('Create Product'), new_admin_product_path, class: 'btn btn-success'
   .col-sm-10
     = render 'form_search'
-table.table.table-bordered.table-hover.table-condensed
+table.table.table-bordered.table-hover.table-condensed.table-responsive
   thead
     tr
       th = sort_link(@q, :id)

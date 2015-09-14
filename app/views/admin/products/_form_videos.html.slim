@@ -2,7 +2,7 @@
   .form-group
     = video.input :url
     - if video.object.persisted?
-      .embed-container
+      .embed-responsive.embed-responsive-16by9
         = video.object.url.html_safe
   .form-group
     = video.link_to_remove _('Remove this video'), class: 'btn btn-danger'

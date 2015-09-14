@@ -7,13 +7,13 @@
           hr.star-light
       .row
         .col-lg-6.col-md-6
-          .embed-container
+          .embed-responsive.embed-responsive-16by9
             = @about.video_url.html_safe
         .col-lg-6.col-md-6
           p
             = @about.content
         .col-sm-12.text-center
-          p 
+          p
             = mail_to @about.mail_to do
               i.fa.fa-envelope
                 =< @about.mail_to
