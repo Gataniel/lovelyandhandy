@@ -20,4 +20,6 @@
 //= require sweet-alert
 //= require sweet-alert-confirm
 
+//= require social-likes
+
 //= require_tree .
