@@ -1,1 +1,4 @@
 en:
+  time:
+    formats:
+      default: '%m/%d/%Y'

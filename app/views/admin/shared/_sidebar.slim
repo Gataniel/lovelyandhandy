@@ -23,7 +23,6 @@
                 input.form-control placeholder="Search" type="text" /
               button.btn.btn-default type="submit" 
                 span.glyphicon.glyphicon-ok
-    /! Main Menu
     .side-menu-container
       ul.nav.navbar-nav
         li
@@ -49,37 +48,8 @@
         li 
           = link_to edit_admin_about_section_path(AboutSection.take), target: '_blank'
             span.glyphicon.glyphicon-font
-            = _('About section')
+            = _('About')
         li 
           = link_to 'http://poskakushka.blogspot.be', target: '_blank'
             span.glyphicon.glyphicon-gift
             = _('Творилки')
-        / li#dropdown.panel.panel-default
-          a data-toggle="collapse" href="#dropdown-lvl1" 
-            span.glyphicon.glyphicon-user
-            | Sub Level
-            span.caret
-          #dropdown-lvl1.panel-collapse.collapse
-            .panel-body
-              ul.nav.navbar-nav
-                li
-                  a href="#"  Link
-                li
-                  a href="#"  Link
-                li
-                  a href="#"  Link
-                /! Dropdown level 2
-                li#dropdown.panel.panel-default
-                  a data-toggle="collapse" href="#dropdown-lvl2" 
-                    span.glyphicon.glyphicon-off
-                    | Sub Level
-                    span.caret
-                  #dropdown-lvl2.panel-collapse.collapse
-                    .panel-body
-                      ul.nav.navbar-nav
-                        li
-                          a href="#"  Link
-                        li
-                          a href="#"  Link
-                        li
-                          a href="#"  Link

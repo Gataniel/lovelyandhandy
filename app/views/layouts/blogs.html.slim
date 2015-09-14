@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title
+      | LovelyAndHandy
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  body
+    .container
+      .row
+        .col-lg-9.col-md-9
+          = yield
+        .col-lg-3.col-md-3
+          = render 'blogs/sidebar', blog: @blog

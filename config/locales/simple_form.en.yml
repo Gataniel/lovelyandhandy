@@ -32,6 +32,7 @@ en:
         size: Size
       blog:
         title: Title
+        description: Description
     # Examples
     # labels:
     #   defaults:

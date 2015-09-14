@@ -1,11 +1,16 @@
 - @blogs.each do |blog|
-  = blog.title
-  = blog.content.html_safe
-  
-  = _('Tags')
-  .list-group
-  - blog.tags.each do |tag|
-    = link_to '#', class: 'list-group-item' do
-      = tag.name
-      span.badge
-        = tag.taggings_count
+  .row
+    .col-lg-10.col-xs-9
+      = blog.title
+    .col-lg-2.col-xs-3
+      .pull-right
+        = l blog.created_at
+  .row
+    .col-sm-12
+      = image_tag blog.image.url(:default)
+  .row
+    .col-sm-12
+      = blog.description
+  .row
+    .col-sm-12
+      = link_to _('Read more...'), blog

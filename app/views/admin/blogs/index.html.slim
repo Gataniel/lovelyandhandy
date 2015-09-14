@@ -6,15 +6,17 @@
 table.table.table-bordered.table-hover.table-condensed
   thead
     tr
-      th = sort_link(@q, :id)
+      th Image
       th = sort_link(@q, :title)
-      th = _('Tags')
-      th = _('Action')
+      th Description
+      th Tags
+      th Action
   tbody
     - @blogs.each do |blog|
       tr
-        td.id = blog.id
+        th = image_tag blog.image.url(:mini)
         td.title = blog.title
+        td = blog.description
         td = blog.tag_list
         td.text-center
           .btn-group

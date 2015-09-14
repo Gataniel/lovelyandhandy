@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  content    :text
 #  video_url  :text
-#  mail_to    :text
+#  mail_to    :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
