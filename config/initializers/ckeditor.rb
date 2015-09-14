@@ -35,5 +35,5 @@ Ckeditor.setup do |config|
   # To reduce the asset precompilation time, you can limit plugins and/or languages to those you need:
   # By default: nil (no limit)
   config.assets_languages = ['en']
-  config.assets_plugins = ['image', 'smiley']
+  config.assets_plugins = %w(basicstyles div filebrowser justify indentlist indentblock format list link undo horizontalrule resize sourcearea specialchar)
 end
