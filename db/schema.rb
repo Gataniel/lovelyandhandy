@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914132441) do
+ActiveRecord::Schema.define(version: 20150918140233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "about_sections", force: :cascade do |t|
-    t.text     "content"
-    t.text     "video_url"
-    t.string   "mail_to"
+    t.text     "content",    null: false
+    t.text     "video_url",  null: false
+    t.string   "mail_to",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,8 +52,6 @@ ActiveRecord::Schema.define(version: 20150914132441) do
     t.integer  "assetable_id"
     t.string   "assetable_type",    limit: 30
     t.string   "type",              limit: 30
-    t.integer  "width"
-    t.integer  "height"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,7 +62,7 @@ ActiveRecord::Schema.define(version: 20150914132441) do
   create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id",   null: false
     t.string   "commentable_type", null: false
-    t.text     "content",          null: false
+    t.text     "body",             null: false
     t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
@@ -81,13 +79,22 @@ ActiveRecord::Schema.define(version: 20150914132441) do
     t.datetime "img_updated_at",   null: false
   end
 
-  create_table "products", force: :cascade do |t|
-    t.decimal  "price",       precision: 8, scale: 2
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+  create_table "product_categories", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+  create_table "products", force: :cascade do |t|
+    t.decimal  "price",               precision: 8, scale: 2
+    t.string   "title",                                       null: false
+    t.text     "description",                                 null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.integer  "product_category_id"
+  end
+
+  add_index "products", ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "mark"
@@ -154,4 +161,5 @@ ActiveRecord::Schema.define(version: 20150914132441) do
     t.datetime "updated_at",     null: false
   end
 
+  add_foreign_key "products", "product_categories"
 end

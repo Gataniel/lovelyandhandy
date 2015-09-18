@@ -14,5 +14,12 @@ html
       #status
       
     = render 'shared/navbar'
-    
-    = yield
+    - if content_for?(:sidebar)
+      .container-fluid
+        .row
+          .col-sm-2
+            = yield(:sidebar)
+          .col-sm-9
+            = yield
+    - else
+      = yield

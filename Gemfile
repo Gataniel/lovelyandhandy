@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 source 'https://rails-assets.org' do
   gem 'rails-assets-sapegin--social-likes'
   gem 'rails-assets-bootstrap-treeview'
-  gem 'rails-assets-wowjs'
   gem 'font-awesome-rails'
+  gem 'rails-assets-animate.css'
 end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'

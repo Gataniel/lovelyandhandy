@@ -19,14 +19,10 @@
 
 //= require social-likes
 //= require bootstrap-treeview
-//= require wowjs
 
 //= require products
 
-//= require_tree .
-
 $(function() {
-  new WOW().init();
   $(document).on('ready page:load', function () {
     $('#status').fadeOut();
     $('#preloader').delay(300).fadeOut('slow');
