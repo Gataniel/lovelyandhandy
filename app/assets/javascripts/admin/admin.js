@@ -21,7 +21,6 @@
 //= require admin/init_select2
 
 //= require ckeditor/init
-//= require admin/sidebar
 
 //= require_tree .
 

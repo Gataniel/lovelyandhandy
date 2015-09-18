@@ -14,5 +14,12 @@ html
       #status
       
     = render 'shared/navbar'
-    
-    = yield
+    .container-fluid
+      .row
+        .col-sm-2
+          = render 'products/sidebar'
+        .col-sm-9
+          = yield
+          
+          
+  / add smoothscrol for chrome

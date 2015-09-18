@@ -1,0 +1,42 @@
+.pfblock.v-center
+  .container
+    .row
+      .col-sm-12.text-center
+        .pfblock-header.wow.fadeInUp
+          h2.pfblock-title = _('About')
+          .pfblock-line
+
+    .row
+      .col-lg-6.col-md-6
+        .embed-responsive.embed-responsive-16by9
+          = @about.video_url.html_safe
+      .col-lg-6.col-md-6
+        p
+          = @about.content
+      .col-sm-12.text-center
+        p.mail-to
+          = mail_to @about.mail_to do
+            i.fa.fa-envelope
+              =< @about.mail_to
+              
+.navbar.navbar-default.navbar-fixed-bottom
+  .container
+    .find-me-on
+      = link_to 'https://www.facebook.com/aliya.gataullina.10', class: 'icon-button facebook', target: '_blank' do
+        i.fa.fa-facebook
+        span
+      = link_to 'https://plus.google.com/u/1/110433214314637423922/posts', class: 'icon-button google-plus', target: '_blank' do
+        i.fa.fa-google-plus
+        span
+      = link_to 'https://instagram.com/aliya_lovely_and_handy', class: 'icon-button instagram', target: '_blank' do
+        i.fa.fa-instagram
+        span
+      = link_to 'https://vk.com/id47481754', class: 'icon-button vk', target: '_blank' do
+        i.fa.fa-vk
+        span
+      = link_to 'https://www.etsy.com/ru/shop/LovelyAndHandy?ref=search_shop_redirect', class: 'icon-button etsy', target: '_blank' do
+        i.fa.fa-etsy
+        span
+      = link_to 'https://ru.pinterest.com/agataullina/lovelyandhandy', class: 'icon-button pinterest', target: '_blank' do
+        i.fa.fa-pinterest
+        span

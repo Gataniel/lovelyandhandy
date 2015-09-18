@@ -1,5 +1,7 @@
 class MainController < ApplicationController
-  def home
+  def home; end
+
+  def about
     @about = AboutSection.take
   end
 end

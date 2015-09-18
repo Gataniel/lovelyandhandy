@@ -20,7 +20,7 @@ class Blog < ActiveRecord::Base
 
   has_many :images,  as: :imageable,   dependent: :destroy
   has_many :videos,  as: :videoable,   dependent: :destroy
-  has_many :commets, as: :commentable, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
   has_and_belongs_to_many :products
   has_attached_file :image, styles: { default: '640>x640>', mini: '128x128' },
     url: '/blogs/:blog_id/:id/:style/:basename.:extension'

@@ -14,15 +14,28 @@
  *= require_self
  *= require jquery-ui
 
- *= require sweet-alert
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "login";
 
-@import "startbootstrap-freelancer/font-awesome";
-@import "startbootstrap-freelancer/freelancer";
-@import "startbootstrap-freelancer/bootstrap";
-@import "startbootstrap-freelancer/custom";
-@import "social-likes/social-likes_flat"
+@import "social-likes/social-likes_flat";
+@import "bootstrap-treeview";
+@import "wowjs/css/libs/animate";
+@import "font-awesome";
+
+@import "products";
+@import "social_links";
+
+// body {
+//   padding-top: 50px;
+// }
+
+.v-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}

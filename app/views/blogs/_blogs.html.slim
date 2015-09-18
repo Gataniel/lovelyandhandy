@@ -1,0 +1,17 @@
+- @blogs.each do |blog|
+  .row
+    .col-lg-10.col-md-9.col-xs-6
+      h3 = blog.title
+    .col-lg-2.col-md-3.col-xs-6
+      h3.pull-right
+        = l blog.created_at
+  .row
+    .col-sm-12
+      = image_tag blog.image.url(:default), class: 'img-responsive'
+  .row
+    .col-sm-12
+      = blog.description
+  .row
+    .col-sm-12
+      = link_to _('Read more...'), blog
+  hr

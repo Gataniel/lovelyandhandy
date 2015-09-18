@@ -1,0 +1,139 @@
+$color-fb: #3B5998;
+$color-vk: #6383a8;
+$color-instagram: #125688;
+$color-gp: #db5a3c;
+$color-etsy: #f56400;
+$color-pinterest: #9a1015;
+
+html {
+  font-size: 20px;
+}
+
+.fa-etsy:before {
+  font-family: serif;
+  content: "\0045";
+}
+
+.find-me-on {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Wrapper */
+
+.icon-button {
+  border: 1px;
+  background-color: white;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 2.0rem;
+  height: 3.6rem;
+  line-height: 3.6rem;
+  margin: 0 5px;
+  position: relative;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 3.6rem;
+  span {
+    border-radius: 0;
+    display: block;
+    height: 0;
+    left: 50%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 0;
+  }
+  &:hover span {
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 0;
+    margin: -1.8rem;
+  }
+}
+
+/* Circle */
+
+.facebook span {
+  background-color: $color-fb;
+}
+
+.google-plus span {
+  background-color: $color-gp;
+}
+
+.instagram span {
+  background-color: $color-instagram;
+}
+.vk span {
+  background-color: $color-vk;
+}
+.etsy span {
+  background-color: $color-etsy;
+}
+.pinterest span {
+  background-color: $color-pinterest;
+}
+
+/* Icons */
+
+.icon-button {
+  i {
+    background: none;
+    color: white;
+    height: 3.6rem;
+    left: 0;
+    line-height: 3.6rem;
+    position: absolute;
+    top: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 3.6rem;
+    z-index: 10;
+  }
+  .fa-facebook {
+    color: $color-fb;
+  }
+  .fa-google-plus {
+    color: $color-gp;
+  }
+  .fa-instagram {
+    color: $color-instagram;
+  }
+  .fa-vk {
+    color: $color-vk;
+  }
+  .fa-etsy {
+    color: $color-etsy;
+  }
+  .fa-pinterest {
+    color: $color-pinterest;
+  }
+  &:hover {
+    .fa-twitter, .fa-facebook, .fa-google-plus, .fa-instagram, .fa-vk, .fa-etsy, .fa-pinterest {
+      color: white;
+    }
+  }
+}
+
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px) {
+    html {
+      font-size: 10px;
+    }
+
+    .find-me-on {
+      padding: 5px;
+    }
+}

@@ -2,10 +2,12 @@ source 'https://rubygems.org'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-sapegin--social-likes'
+  gem 'rails-assets-bootstrap-treeview'
+  gem 'rails-assets-wowjs'
+  gem 'font-awesome-rails'
 end
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails', '4.2.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,6 +42,9 @@ gem 'ckeditor'
 gem 'devise'
 gem 'gettext_i18n_rails'
 gem 'jquery-ui-rails'
+# TODO remove
+gem 'faker'
+gem 'kaminari'
 gem 'nested_form'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-vkontakte'
@@ -51,9 +56,7 @@ gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.2'
 gem 'recursive-open-struct'
 gem 'simple_form'
 gem 'slim-rails'
-gem 'sweet-alert'
 gem 'select2-rails'
-gem 'sweet-alert-confirm'
 
 group :development do
   gem 'better_errors'

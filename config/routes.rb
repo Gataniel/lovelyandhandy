@@ -14,7 +14,10 @@ Rails.application.routes.draw do
 
   root 'main#home'
 
+  get '/about', to: 'main#about'
+
   resources :blogs, only: %i(index show)
+  resources :products, only: %i(index show)
 
   namespace :admin do
     mount Ckeditor::Engine => '/ckeditor'
