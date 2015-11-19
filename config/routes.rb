@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     post '/users/signup_finish' => 'users/registrations#signup_finish', as: :signup_finish
   end
 
-  root 'main#home'
+  root 'main#about'
 
   get '/about', to: 'main#about'
 

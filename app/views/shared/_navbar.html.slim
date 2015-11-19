@@ -11,18 +11,19 @@ nav.navbar.navbar-default.navbar-fixed-top
         = active_link_to _('LovelyAndHandy'), root_path
     #nav-collapse.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
-        - if current_user.try(:admin?)
+        / - if current_user.try(:admin?)
           li
             = link_to _('Admin'), admin_path
         li
           = link_to _('Blog'), 'http://poskakushka.blogspot.be/', target: '_blank'
-        li
+        / li
           = link_to _('News'), blogs_path
         li
-          = active_link_to _('Shop'), products_path
-        li
+          = active_link_to _('Shop'), 'https://www.etsy.com/ru/shop/LovelyAndHandy', target: '_blank'
+          / = active_link_to _('Shop'), products_path
+        / li
           = active_link_to _('About'), about_path
-        li.dropdown
+        / li.dropdown
           - if current_user
             = link_to _('Log Out'), destroy_user_session_path, method: :delete
           - else
