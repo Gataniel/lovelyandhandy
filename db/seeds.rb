@@ -28,7 +28,7 @@ ProductCategory.find_each do |category|
       price: rand(10.00..999.60).round(2),
       description: "Lorem ipsum dolor sit amet"
     )
-    product.images.build(img: File.new("/home/azat/projects/lovelyandhandy/temp.jpg"))
+    product.images.build(img: File.new('/Users/gataniel/projects/lovelyandhandy/temp.jpg'))
     product.save!
   end
 end

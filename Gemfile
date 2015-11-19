@@ -3,9 +3,10 @@ source 'https://rubygems.org'
 source 'https://rails-assets.org' do
   gem 'rails-assets-sapegin--social-likes'
   gem 'rails-assets-bootstrap-treeview'
-  gem 'font-awesome-rails'
+  gem 'rails-assets-fontawesome'
   gem 'rails-assets-animate.css'
 end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use SCSS for stylesheets
@@ -35,9 +36,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
 gem 'active_link_to'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'capistrano', '~> 3.1'
+gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano-rvm'
 gem 'ckeditor'
 gem 'devise'
 gem 'gettext_i18n_rails'
