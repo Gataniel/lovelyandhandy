@@ -17,6 +17,9 @@ set :bundle_without, [:development, :test]
 set :use_sudo,       false
 
 set :repo_url,       "https://github.com/Gataniel/lovelyandhandy.git"
+# set :repo_url,       "#{fetch(:user)}@calcium.locum.ru:" \
+                    #  "git/#{fetch(:application)}.git"
+
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
@@ -37,10 +40,7 @@ set :linked_dirs, %w(bin log tmp/cache vendor/bundle public/system)
 # set :keep_releases, 5
 
 # Configure RVM
-set :rvm_ruby_string, '2.2.2@lovelyandhandy'
-set :rvm_type, :user
-
-# set :rvm_ruby_version, '2.2.2'
+set :rvm_ruby_version, '2.2.2'
 
 # You unlikely have to change below this line
 # -----------------------------------------------------------------------------
