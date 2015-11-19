@@ -16,9 +16,7 @@ set :unicorn_pid,    "/var/run/unicorn/#{fetch(:user)}/" \
 set :bundle_without, [:development, :test]
 set :use_sudo,       false
 
-set :repo_url,       "#{fetch(:user)}@calcium.locum.ru:" \
-                     "git/#{fetch(:application)}.git"
-
+set :repo_url,       "https://github.com/Gataniel/lovelyandhandy.git"
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
